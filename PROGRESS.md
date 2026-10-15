@@ -13,3 +13,7 @@ Next: Bloom filter integration or multi-SSTable compaction and LSM engine coordi
 Built: LSMStore storage engine coordinating WAL, MemTable, and SSTables with size-triggered flushes, crash recovery replay, atomic SSTable replacement, and tombstone search termination.
 Files: lsm/store.py, tests/test_store.py
 Next: Compaction strategy (tiered or leveled) to merge SSTables and purge obsolete tombstones, or Bloom filter integration.
+
+Built: Multi-way SSTable compaction using heapq k-way merge with newest-wins conflict resolution, configurable tombstone purging, and input file preservation.
+Files: lsm/compaction.py, tests/test_compaction.py
+Next: Compaction integration in LSMStore (background or threshold-triggered compaction coordinating active tables and replacement).
