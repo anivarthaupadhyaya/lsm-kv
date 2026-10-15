@@ -21,3 +21,7 @@ Next: Compaction integration in LSMStore (background or threshold-triggered comp
 Built: Threshold-triggered compaction in LSMStore with tombstone purging, 5-step crash-safety protocol, marker tracking, and startup crash recovery.
 Files: lsm/store.py, tests/test_store.py
 Next: Bloom filter integration for SSTable read acceleration or server protocol implementation.
+
+Built: Probabilistic BloomFilter with theoretical m/k sizing, blake2b double hashing ((h1 + i*h2) % m), binary serialization with CRC32 checksum, and corruption rejection.
+Files: lsm/bloom.py, tests/test_bloom.py
+Next: Bloom filter integration into SSTable writer and reader for disk-read acceleration.
