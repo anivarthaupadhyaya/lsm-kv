@@ -1,0 +1,66 @@
+{
+  "set_100k": {
+    "ops_per_sec": 1084.0,
+    "p50_ms": 0.235,
+    "p99_ms": 81.785,
+    "duration_sec": 9.225
+  },
+  "get_existing": {
+    "ops_per_sec": 6522.4,
+    "p50_ms": 0.584,
+    "p99_ms": 1.092,
+    "duration_sec": 1.533
+  },
+  "get_nonexistent_bloom": {
+    "use_bloom": {
+      "ops_per_sec": 6670.5,
+      "p50_ms": 0.523,
+      "p99_ms": 1.646,
+      "duration_sec": 0.3,
+      "sst_count": 28
+    },
+    "no_bloom": {
+      "ops_per_sec": 560.5,
+      "p50_ms": 7.029,
+      "p99_ms": 8.213,
+      "duration_sec": 3.569,
+      "sst_count": 28
+    }
+  },
+  "fsync_policy_set": {
+    "always": {
+      "ops_per_sec": 313.9,
+      "p50_ms": 5.216,
+      "p99_ms": 59.618,
+      "duration_sec": 6.371
+    },
+    "10ms": {
+      "ops_per_sec": 1522.8,
+      "p50_ms": 0.238,
+      "p99_ms": 44.559,
+      "duration_sec": 1.313
+    },
+    "never": {
+      "ops_per_sec": 1599.6,
+      "p50_ms": 0.236,
+      "p99_ms": 45.123,
+      "duration_sec": 1.25
+    }
+  },
+  "read_compaction": {
+    "before": {
+      "ops_per_sec": 5125.0,
+      "p50_ms": 0.749,
+      "p99_ms": 1.187,
+      "duration_sec": 0.068,
+      "sst_count": 28
+    },
+    "after": {
+      "ops_per_sec": 6895.9,
+      "p50_ms": 0.566,
+      "p99_ms": 0.836,
+      "duration_sec": 0.051,
+      "sst_count": 1
+    }
+  }
+}

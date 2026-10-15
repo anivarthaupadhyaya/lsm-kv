@@ -37,3 +37,7 @@ Next: Storage engine benchmarking suite (throughput, latency, pipelining) or cli
 Built: Crash resilience test suite with standalone random writer subprocess (WAL fsync=always, low memtable/compaction thresholds), abrupt process termination, log replay validation allowing at most 1 in-flight difference, and standalone/pytest modes.
 Files: tests/crash_writer.py, tests/test_crash.py
 Next: Performance benchmarking suite (throughput, latency distribution, write amplification, compaction stalls) or client connection pooling.
+
+Built: Performance benchmark suite measuring SET/GET throughput and p50/p99 latency, Bloom filter acceleration on missing keys across >=8 SSTables, fsync policy trade-offs (always, 10ms, never), and pre/post compaction read latency.
+Files: bench/run.py, server/server.py, bench/results.json
+Next: Connection pooling, leveled compaction strategy, or write amplification factor (WAF) profiling.

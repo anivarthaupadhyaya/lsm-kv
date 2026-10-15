@@ -26,10 +26,24 @@ class Server:
         data_dir: Optional[Union[str, Path]] = None,
         host: str = "127.0.0.1",
         port: int = 6380,
+        fsync_policy: Union[str, int, float] = "always",
+        use_bloom: bool = True,
+        memtable_limit_bytes: Optional[int] = None,
+        compaction_threshold: int = 4,
     ) -> None:
         self.host = host
         self.port = port
-        self.store: LSMStore = store if store is not None else LSMStore(data_dir=data_dir or "./data")
+        self.store: LSMStore = (
+            store
+            if store is not None
+            else LSMStore(
+                data_dir=data_dir or "./data",
+                fsync_policy=fsync_policy,
+                use_bloom=use_bloom,
+                memtable_limit_bytes=memtable_limit_bytes,
+                compaction_threshold=compaction_threshold,
+            )
+        )
         self._server: Optional[asyncio.Server] = None
         self._active_writers: set[asyncio.StreamWriter] = set()
         self._active_tasks: set[asyncio.Task] = set()
@@ -74,6 +88,14 @@ class Server:
                     return integer(1)
                 else:
                     return integer(0)
+
+            elif cmd == b"FLUSH":
+                self.store.flush()
+                return simple_string("OK")
+
+            elif cmd == b"COMPACT":
+                self.store.compact()
+                return simple_string("OK")
 
             else:
                 name = args[0].decode("utf-8", errors="replace").replace("\r", " ").replace("\n", " ")
@@ -238,10 +260,24 @@ if __name__ == "__main__":
     parser.add_argument("--host", default="127.0.0.1", help="Bind host")
     parser.add_argument("--port", type=int, default=6380, help="Bind port")
     parser.add_argument("--dir", default="./data", help="Data directory")
+    parser.add_argument("--fsync-policy", "--fsync", dest="fsync_policy", default="always", help="fsync policy")
+    parser.add_argument("--use-bloom", dest="use_bloom", action=argparse.BooleanOptionalAction, default=True, help="Bloom filter")
+    parser.add_argument("--no-bloom", dest="use_bloom", action="store_false")
+    parser.add_argument("--memtable-limit", dest="memtable_limit", type=int, default=None, help="MemTable limit in bytes")
+    parser.add_argument("--compaction-threshold", dest="compaction_threshold", type=int, default=4, help="Compaction threshold")
     cli_args = parser.parse_args()
 
-    srv = Server(data_dir=cli_args.dir, host=cli_args.host, port=cli_args.port)
+    srv = Server(
+        data_dir=cli_args.dir,
+        host=cli_args.host,
+        port=cli_args.port,
+        fsync_policy=cli_args.fsync_policy,
+        use_bloom=cli_args.use_bloom,
+        memtable_limit_bytes=cli_args.memtable_limit,
+        compaction_threshold=cli_args.compaction_threshold,
+    )
     try:
         asyncio.run(srv.run())
     except KeyboardInterrupt:
         pass
+
