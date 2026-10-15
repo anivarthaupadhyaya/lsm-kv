@@ -17,3 +17,7 @@ Next: Compaction strategy (tiered or leveled) to merge SSTables and purge obsole
 Built: Multi-way SSTable compaction using heapq k-way merge with newest-wins conflict resolution, configurable tombstone purging, and input file preservation.
 Files: lsm/compaction.py, tests/test_compaction.py
 Next: Compaction integration in LSMStore (background or threshold-triggered compaction coordinating active tables and replacement).
+
+Built: Threshold-triggered compaction in LSMStore with tombstone purging, 5-step crash-safety protocol, marker tracking, and startup crash recovery.
+Files: lsm/store.py, tests/test_store.py
+Next: Bloom filter integration for SSTable read acceleration or server protocol implementation.
