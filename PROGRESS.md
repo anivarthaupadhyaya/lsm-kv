@@ -33,3 +33,7 @@ Next: Network server/client protocol implementation or storage benchmarking suit
 Built: Asyncio TCP server supporting RESP2 protocol (PING, SET, GET, DEL) with read buffering for pipelining/split requests, disconnect resilience, clean shutdown, and blocking RespClient.
 Files: server/server.py, tests/resp_client.py, tests/test_server.py
 Next: Storage engine benchmarking suite (throughput, latency, pipelining) or client connection pooling.
+
+Built: Crash resilience test suite with standalone random writer subprocess (WAL fsync=always, low memtable/compaction thresholds), abrupt process termination, log replay validation allowing at most 1 in-flight difference, and standalone/pytest modes.
+Files: tests/crash_writer.py, tests/test_crash.py
+Next: Performance benchmarking suite (throughput, latency distribution, write amplification, compaction stalls) or client connection pooling.
