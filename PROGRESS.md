@@ -9,3 +9,7 @@ Next: SSTable file writer and reader (immutable on-disk sorted tables with index
 Built: Immutable SSTable file format with data section, sparse index, fixed 12-byte footer with magic number validation, block-bounded binary-search get(), and ordered items iteration.
 Files: lsm/sstable.py, tests/test_sstable.py
 Next: Bloom filter integration or multi-SSTable compaction and LSM engine coordination.
+
+Built: LSMStore storage engine coordinating WAL, MemTable, and SSTables with size-triggered flushes, crash recovery replay, atomic SSTable replacement, and tombstone search termination.
+Files: lsm/store.py, tests/test_store.py
+Next: Compaction strategy (tiered or leveled) to merge SSTables and purge obsolete tombstones, or Bloom filter integration.

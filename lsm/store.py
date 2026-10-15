@@ -21,14 +21,20 @@ class LSMStore:
         data_dir: Union[str, Path],
         memtable_limit_bytes: Optional[int] = None,
         *,
+        memtable_size_limit: Optional[int] = None,
         memtable_limit: Optional[int] = None,
         fsync_policy: Union[str, int, float] = "always",
     ) -> None:
         self.data_dir = Path(data_dir).resolve()
         self.data_dir.mkdir(parents=True, exist_ok=True)
 
-        limit = memtable_limit_bytes if memtable_limit_bytes is not None else memtable_limit
+        limit = (
+            memtable_limit_bytes
+            if memtable_limit_bytes is not None
+            else (memtable_size_limit if memtable_size_limit is not None else memtable_limit)
+        )
         self.memtable_limit_bytes = int(limit) if limit is not None else 4096
+        self.memtable_size_limit = self.memtable_limit_bytes
         self._fsync_policy = fsync_policy
 
         self._lock = threading.RLock()
@@ -81,9 +87,6 @@ class LSMStore:
         for name in ("wal.log", "wal.wal"):
             p = self.data_dir / name
             if p.exists():
-                return p
-        for p in self.data_dir.iterdir():
-            if p.is_file() and not p.name.endswith(".tmp") and "wal" in p.name.lower():
                 return p
         return self.data_dir / "wal.log"
 
