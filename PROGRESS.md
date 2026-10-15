@@ -25,3 +25,7 @@ Next: Bloom filter integration for SSTable read acceleration or server protocol 
 Built: Probabilistic BloomFilter with theoretical m/k sizing, blake2b double hashing ((h1 + i*h2) % m), binary serialization with CRC32 checksum, and corruption rejection.
 Files: lsm/bloom.py, tests/test_bloom.py
 Next: Bloom filter integration into SSTable writer and reader for disk-read acceleration.
+
+Built: BloomFilter integration in LSMStore with atomic .bloom sidecar creation, read-path skip optimization (bloom_skips), corrupted/missing fallback rebuild, and crash-safe compaction cleanup.
+Files: lsm/store.py, tests/test_store.py
+Next: Network server/client protocol implementation or storage benchmarking suite.
