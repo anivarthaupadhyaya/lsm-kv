@@ -1,65 +1,65 @@
 {
   "set_100k": {
-    "ops_per_sec": 1084.0,
+    "ops_per_sec": 320.8,
     "p50_ms": 0.235,
-    "p99_ms": 81.785,
-    "duration_sec": 9.225
+    "p99_ms": 503.477,
+    "duration_sec": 311.718
   },
   "get_existing": {
-    "ops_per_sec": 6522.4,
-    "p50_ms": 0.584,
-    "p99_ms": 1.092,
-    "duration_sec": 1.533
+    "ops_per_sec": 6615.1,
+    "p50_ms": 0.594,
+    "p99_ms": 0.753,
+    "duration_sec": 15.117
   },
   "get_nonexistent_bloom": {
     "use_bloom": {
-      "ops_per_sec": 6670.5,
-      "p50_ms": 0.523,
-      "p99_ms": 1.646,
-      "duration_sec": 0.3,
+      "ops_per_sec": 6538.1,
+      "p50_ms": 0.542,
+      "p99_ms": 1.742,
+      "duration_sec": 0.306,
       "sst_count": 28
     },
     "no_bloom": {
-      "ops_per_sec": 560.5,
-      "p50_ms": 7.029,
-      "p99_ms": 8.213,
-      "duration_sec": 3.569,
+      "ops_per_sec": 577.8,
+      "p50_ms": 6.889,
+      "p99_ms": 7.341,
+      "duration_sec": 3.461,
       "sst_count": 28
     }
   },
   "fsync_policy_set": {
     "always": {
-      "ops_per_sec": 313.9,
-      "p50_ms": 5.216,
-      "p99_ms": 59.618,
-      "duration_sec": 6.371
+      "ops_per_sec": 519.9,
+      "p50_ms": 5.049,
+      "p99_ms": 46.016,
+      "duration_sec": 3.847
     },
     "10ms": {
-      "ops_per_sec": 1522.8,
-      "p50_ms": 0.238,
-      "p99_ms": 44.559,
-      "duration_sec": 1.313
+      "ops_per_sec": 1700.1,
+      "p50_ms": 0.236,
+      "p99_ms": 41.161,
+      "duration_sec": 1.176
     },
     "never": {
-      "ops_per_sec": 1599.6,
-      "p50_ms": 0.236,
-      "p99_ms": 45.123,
-      "duration_sec": 1.25
+      "ops_per_sec": 1686.2,
+      "p50_ms": 0.228,
+      "p99_ms": 40.463,
+      "duration_sec": 1.186
     }
   },
   "read_compaction": {
     "before": {
-      "ops_per_sec": 5125.0,
-      "p50_ms": 0.749,
-      "p99_ms": 1.187,
-      "duration_sec": 0.068,
+      "ops_per_sec": 4871.0,
+      "p50_ms": 0.727,
+      "p99_ms": 1.705,
+      "duration_sec": 0.072,
       "sst_count": 28
     },
     "after": {
-      "ops_per_sec": 6895.9,
-      "p50_ms": 0.566,
-      "p99_ms": 0.836,
-      "duration_sec": 0.051,
+      "ops_per_sec": 6931.4,
+      "p50_ms": 0.567,
+      "p99_ms": 0.657,
+      "duration_sec": 0.05,
       "sst_count": 1
     }
   }
