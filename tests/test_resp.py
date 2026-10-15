@@ -222,7 +222,7 @@ def test_encoders_bulk_string():
     assert bulk_string(None) == b"$-1\r\n"
 
     # Binary safe
-    assert bulk_string(b"foo\r\n\x00bar") == b"$10\r\nfoo\r\n\x00bar\r\n"
+    assert bulk_string(b"foo\r\n\x00bar") == b"$9\r\nfoo\r\n\x00bar\r\n"
 
     with pytest.raises(TypeError):
         bulk_string(123)  # type: ignore

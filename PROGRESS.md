@@ -29,3 +29,7 @@ Next: Bloom filter integration into SSTable writer and reader for disk-read acce
 Built: BloomFilter integration in LSMStore with atomic .bloom sidecar creation, read-path skip optimization (bloom_skips), corrupted/missing fallback rebuild, and crash-safe compaction cleanup.
 Files: lsm/store.py, tests/test_store.py
 Next: Network server/client protocol implementation or storage benchmarking suite.
+
+Built: Asyncio TCP server supporting RESP2 protocol (PING, SET, GET, DEL) with read buffering for pipelining/split requests, disconnect resilience, clean shutdown, and blocking RespClient.
+Files: server/server.py, tests/resp_client.py, tests/test_server.py
+Next: Storage engine benchmarking suite (throughput, latency, pipelining) or client connection pooling.
