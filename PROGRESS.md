@@ -5,3 +5,7 @@ Next: MemTable implementation (in-memory sorted buffer with WAL integration and 
 Built: In-memory sorted MemTable using bisect, supporting put, get (distinguishing missing from deleted), delete with tombstones, sorted items iterator, and approximate memory size tracking.
 Files: lsm/memtable.py, tests/test_memtable.py
 Next: SSTable file writer and reader (immutable on-disk sorted tables with index and bloom filter).
+
+Built: Immutable SSTable file format with data section, sparse index, fixed 12-byte footer with magic number validation, block-bounded binary-search get(), and ordered items iteration.
+Files: lsm/sstable.py, tests/test_sstable.py
+Next: Bloom filter integration or multi-SSTable compaction and LSM engine coordination.
