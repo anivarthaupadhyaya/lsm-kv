@@ -41,3 +41,7 @@ Next: Performance benchmarking suite (throughput, latency distribution, write am
 Built: Performance benchmark suite measuring SET/GET throughput and p50/p99 latency, Bloom filter acceleration on missing keys across >=8 SSTables, fsync policy trade-offs (always, 10ms, never), and pre/post compaction read latency.
 Files: bench/run.py, server/server.py, bench/results.json
 Next: Connection pooling, leveled compaction strategy, or write amplification factor (WAF) profiling.
+
+Built: Comprehensive project documentation (README.md) with system overview, execution instructions, supported RESP2 commands, benchmark results table, and crash test scope, along with technical design document (DESIGN.md) detailing read/write paths, flush ordering, compaction commit-marker protocol, Bloom filter tombstone rationale, fsync trade-offs, and verified known limitations.
+Files: README.md, DESIGN.md
+Next: Background thread execution with leveled or size-tiered compaction to eliminate synchronous write stalls.
