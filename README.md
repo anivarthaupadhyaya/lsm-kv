@@ -104,7 +104,7 @@ The benchmark suite ([run.py](file:///c:/Users/Hp/lsm-kv/bench/run.py)) measures
 | 4. SET fsync policy | `10ms` interval | 2,000 | 1700.1 | 0.236 | 41.161 | 1.176 |
 | 4. SET fsync policy | `never` | 2,000 | 1686.2 | 0.228 | 40.463 | 1.186 |
 | 5. Read latency | Before compaction (28 SSTs) | 350 | 4871.0 | 0.727 | 1.705 | 0.072 |
-| 5. Read latency | After compaction (1 SST) | 350 | 6931.4 | 0.567 | 0.657 | 0.05 |
+| 5. Read latency | After compaction (1 SST) | 350 | 6931.4 | 0.567 | 0.657 | 0.05 | 
 
 ---
 
