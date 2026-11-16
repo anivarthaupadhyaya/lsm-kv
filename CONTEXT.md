@@ -7,4 +7,4 @@ Rules:
 - Run tests as: pytest -x -q --timeout=30 2>&1 | Select-Object -Last 40
 - After finishing, append 3 lines to PROGRESS.md: what was built, file names, what's next.
 - Do not start the next task. Stop and wait.
-- 
+  
